@@ -1,9 +1,9 @@
-package com.example.modernapp.data.local
+package com.example.modernapp.data.local.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.app.data.local.entities.UserEntity
+import com.example.modernapp.data.local.entities.UserEntity
 
 @Dao
 interface UserDao {

@@ -1,4 +1,4 @@
-package com.example.modernapp.data.local
+package com.example.modernapp.data.local.entities
 
 @Entity(tableName = "users")
 data class UserEntity(
