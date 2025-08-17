@@ -8,4 +8,5 @@ data  class AdressEntity (
     val suite: String,
     val city: String,
     val zipcode: String
+
 )
