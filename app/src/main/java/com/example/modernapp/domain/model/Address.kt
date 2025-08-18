@@ -1,4 +1,4 @@
-package com.example.modernapp.model
+package com.example.modernapp.domain.model
 
 data  class Address (
     val id:Int,
