@@ -1,7 +1,8 @@
-package com.example.modernapp
+package com.example.modernapp.presentation
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.modernapp.domain.model.User
@@ -12,14 +13,21 @@ import kotlinx.coroutines.launch
 class MainViewModel @Inject constructor(
     private val userInsertCase: UserInsertCase
 ) :ViewModel() {
-  val name by mutableStateOf("")
-  val email by mutableStateOf("")
-  val message   by mutableStateOf("")
+  var name by mutableStateOf("")
+  var email by mutableStateOf("")
+  var message   by mutableStateOf("")
 
      fun onSaveUser(){
       viewModelScope.launch {
-          userInsertCase(User(name=name,email= email))
+          try {
+              userInsertCase(User(name=name,email= email))
+          }
+          catch (ex:Exception){
+              message = ex.toString()
+          }
 
-      }       }
+
+      }
+     }
 
 }
