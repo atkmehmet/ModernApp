@@ -1,11 +1,15 @@
 package com.example.modernapp.data.local.dao
 
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.example.modernapp.data.local.entities.AdressEntity
 
 @Dao
 interface    Adressdao {
 
-    @insert(OnConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun addAdress(adressEntity: AdressEntity)
 
     @Query("Select * from Adress")

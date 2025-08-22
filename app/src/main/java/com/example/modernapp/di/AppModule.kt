@@ -1,10 +1,16 @@
 package com.example.modernapp.di
 
+import androidx.room.Room
 import com.example.modernapp.data.local.dao.UserDao
 import com.example.modernapp.data.local.database.AppDatabase
 import com.example.modernapp.data.local.repository.UserRepositoryImpl
 import com.example.modernapp.domain.repository.UserRepository
 import com.example.modernapp.domain.usecase.UserInsertCase
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
