@@ -8,7 +8,7 @@ import com.example.modernapp.data.local.entities.AdressEntity
 import com.example.modernapp.data.local.entities.UserEntity
 
 @Database( entities =  [AdressEntity::class,UserEntity::class],version = 1)
-abstract class  Database: RoomDatabase() {
+abstract class  AppDatabase: RoomDatabase() {
     abstract fun userDao():UserDao
     abstract fun adressDao():Adressdao
 

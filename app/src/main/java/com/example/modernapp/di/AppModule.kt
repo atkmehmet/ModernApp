@@ -1,5 +1,6 @@
 package com.example.modernapp.di
 
+import android.content.Context
 import androidx.room.Room
 import com.example.modernapp.data.local.dao.UserDao
 import com.example.modernapp.data.local.database.AppDatabase
@@ -9,6 +10,7 @@ import com.example.modernapp.domain.usecase.UserInsertCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -32,7 +34,7 @@ import javax.inject.Singleton
             }
             @Provides
             @Singleton
-            fun providesAppDatabase(@Applicationcontex contex):AppDatabase{
+            fun providesAppDatabase(@ApplicationContext contex:Context):AppDatabase{
                 return Room.databaseBuilder(
                     contex,
                     AppDatabase::class.java,
