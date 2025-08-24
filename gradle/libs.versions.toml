@@ -2,11 +2,12 @@
 #Gradle & Kotlın
 agp = "8.5.1"
 kotlin = "1.9.0"
+hiltNavigationCompose = "1.2.0"
 
 #AndroidX
 coreKtx = "1.15.0"
 lifecycleRuntimeKtx = "2.9.1"
-activityCompose = "10.0.1"
+activityCompose = "1.9.3"
 
 #Testing
 junit = "4.13.2"
@@ -54,7 +55,7 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 # Hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
-
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 # Room
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }

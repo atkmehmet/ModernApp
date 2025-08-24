@@ -12,9 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
+fun MainScreen(viewModel: MainViewModel = hiltViewModel() ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,7 +43,7 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
         }
 
         if (viewModel.message.isNotBlank()) {
-            Text(text =viewModel.message,Color.Red )
+            Text(text = viewModel.message)
         }
     }
 
