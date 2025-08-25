@@ -5,7 +5,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -13,6 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.modernapp.domain.usecase.UserList
+import androidx.compose.foundation.lazy.items
+import com.example.modernapp.domain.model.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
@@ -45,7 +52,35 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel() ) {
         if (viewModel.message.isNotBlank()) {
             Text(text = viewModel.message)
         }
+        com.example.modernapp.presentation.UserList(viewModel.users)
+
     }
 
 
+
+
+}
+
+
+
+@Composable
+fun UserList(userList: List<User>){
+    LazyColumn {
+        items(userList){user->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp)
+                ) {
+                    Text(text = "ID: ${user.email}")
+                    Text(text = "Name: ${user.name}")
+                }
+            }
+
+        }
+    }
 }
