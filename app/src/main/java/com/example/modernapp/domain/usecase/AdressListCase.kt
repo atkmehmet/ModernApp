@@ -7,7 +7,7 @@ class AdressListCase(
     private val repository: AdressRepository
 ) {
 
-    suspend operator fun invoke(adress:Address){
-        repository.insertAdress(adress)
+    suspend operator fun invoke(): List<Address> {
+        repository.getAdresses()
     }
 }

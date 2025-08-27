@@ -1,4 +1,4 @@
-package com.example.modernapp.presentation
+package com.example.modernapp.presentation.Uses
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
