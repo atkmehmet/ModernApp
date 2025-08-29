@@ -8,6 +8,6 @@ class AdressListCase(
 ) {
 
     suspend operator fun invoke(): List<Address> {
-        repository.getAdresses()
+      return  repository.getAdresses()
     }
 }

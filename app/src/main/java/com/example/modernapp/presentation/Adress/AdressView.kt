@@ -8,9 +8,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.modernapp.domain.model.Address
 import com.example.modernapp.domain.usecase.AdressInsertCase
 import com.example.modernapp.domain.usecase.AdressListCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class AdressView @Inject constructor(
     private val adressInsertCase: AdressInsertCase,
     private val adressListCase: AdressListCase
@@ -29,6 +31,7 @@ class AdressView @Inject constructor(
         viewModelScope.launch {
             adressList = adressListCase()
         }
+    }
         fun InsertAdress(){
             viewModelScope.launch {
                 try {
@@ -53,4 +56,3 @@ class AdressView @Inject constructor(
 
 
     }
-}
