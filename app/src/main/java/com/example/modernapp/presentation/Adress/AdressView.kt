@@ -16,12 +16,12 @@ class AdressView @Inject constructor(
     private val adressListCase: AdressListCase
 ) :ViewModel() {
 
-    val id      by mutableStateOf(0)
-    val street  by mutableStateOf("")
-    val idUser  by mutableStateOf(0)
-    val suite   by mutableStateOf("")
-    val city    by mutableStateOf("")
-    val zipcode by mutableStateOf("")
+    var id      by mutableStateOf(0)
+    var street  by mutableStateOf("")
+    var idUser  by mutableStateOf(0)
+    var suite   by mutableStateOf("")
+    var city    by mutableStateOf("")
+    var zipcode by mutableStateOf("")
     var message by mutableStateOf("")
     var adressList by mutableStateOf(listOf<Address>())
 
@@ -29,8 +29,6 @@ class AdressView @Inject constructor(
         viewModelScope.launch {
             adressList = adressListCase()
         }
-
-
         fun InsertAdress(){
             viewModelScope.launch {
                 try {
