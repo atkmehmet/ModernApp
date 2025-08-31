@@ -10,4 +10,6 @@ interface AdressRepository {
 
     suspend fun deleteAdress(id:Int)
 
+    suspend fun insertToApi()
+
 }

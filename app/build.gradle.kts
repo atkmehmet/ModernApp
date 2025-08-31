@@ -82,6 +82,7 @@ dependencies {
 
     // Retrofit + OkHttp
     implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
     implementation(libs.retrofit.moshi)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)

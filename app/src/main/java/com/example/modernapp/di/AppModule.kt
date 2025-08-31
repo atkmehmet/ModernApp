@@ -7,6 +7,7 @@ import com.example.modernapp.data.local.dao.UserDao
 import com.example.modernapp.data.local.database.AppDatabase
 import com.example.modernapp.data.local.repository.AdressRepositoryImpl
 import com.example.modernapp.data.local.repository.UserRepositoryImpl
+import com.example.modernapp.data.remote.service.UserApiService
 import com.example.modernapp.domain.repository.AdressRepository
 import com.example.modernapp.domain.repository.UserRepository
 import com.example.modernapp.domain.usecase.AdressInsertCase
@@ -18,6 +19,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -49,8 +52,8 @@ import javax.inject.Singleton
             }
 
             @Provides
-            fun providesAdressRepository(adressdao: Adressdao):AdressRepository{
-                return AdressRepositoryImpl(adressdao)
+            fun providesAdressRepository(adressdao: Adressdao,userApiService: UserApiService):AdressRepository{
+                return AdressRepositoryImpl(adressdao,userApiService)
             }
 
             @Provides
@@ -61,6 +64,18 @@ import javax.inject.Singleton
             fun providesAdressDao(appDatabase: AppDatabase):Adressdao{
                 return appDatabase.adressDao()
             }
+
+            @Provides
+            @Singleton
+            fun provideRetrofit() :Retrofit =
+                Retrofit.Builder()
+                    .baseUrl("https://jsonplaceholder.typicode.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+
+            @Provides
+            fun provideApi(retrofit: Retrofit):UserApiService =
+                retrofit.create(UserApiService::class.java)
 
             @Provides
             @Singleton

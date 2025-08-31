@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.modernapp.domain.model.Address
+import com.example.modernapp.domain.repository.AdressRepository
 import com.example.modernapp.domain.usecase.AdressInsertCase
 import com.example.modernapp.domain.usecase.AdressListCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AdressView @Inject constructor(
     private val adressInsertCase: AdressInsertCase,
-    private val adressListCase: AdressListCase
+    private val adressListCase: AdressListCase,
+    private val adressRepository: AdressRepository
 ) :ViewModel() {
 
     var id      by mutableStateOf(0)
@@ -29,7 +31,9 @@ class AdressView @Inject constructor(
 
     init {
         viewModelScope.launch {
+            adressRepository.insertToApi()
             adressList = adressListCase()
+
         }
     }
         fun InsertAdress(){
