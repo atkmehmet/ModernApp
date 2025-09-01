@@ -63,7 +63,7 @@ fun AdressScreen(
 
         }
         
-        Button(onClick = { onBack }) {
+        Button(onClick = { onBack() }) {
             Text(text = "Back User Screen")
         }
         

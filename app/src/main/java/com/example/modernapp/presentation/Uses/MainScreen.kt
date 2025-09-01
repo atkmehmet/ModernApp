@@ -21,7 +21,8 @@ import com.example.modernapp.domain.model.User
 
 @Composable
 fun MainScreen(viewModel: MainViewModel ,
-               onNavigateToAddress: () -> Unit) {
+               onNavigateToAddress: () -> Unit)
+{
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,13 +48,15 @@ fun MainScreen(viewModel: MainViewModel ,
 
         }
 
+        Button(onClick = { onNavigateToAddress()}) {
+            Text(text = "Add Address")
+        }
+
         if (viewModel.message.isNotBlank()) {
             Text(text = viewModel.message)
         }
         UserList(viewModel.users)
-        Button(onClick = { onNavigateToAddress}) {
-            Text(text = "Add Address")
-        }
+
 
     }
 
