@@ -86,4 +86,8 @@ dependencies {
     implementation(libs.retrofit.moshi)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
+
+
+    //navigation
+    implementation(libs.navigation)
 }
