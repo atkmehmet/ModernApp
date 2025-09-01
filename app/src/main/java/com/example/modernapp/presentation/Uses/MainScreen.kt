@@ -20,7 +20,8 @@ import androidx.compose.foundation.lazy.items
 import com.example.modernapp.domain.model.User
 
 @Composable
-fun MainScreen(viewModel: MainViewModel = hiltViewModel() ) {
+fun MainScreen(viewModel: MainViewModel ,
+               onNavigateToAddress: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -50,6 +51,9 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel() ) {
             Text(text = viewModel.message)
         }
         UserList(viewModel.users)
+        Button(onClick = { onNavigateToAddress}) {
+            Text(text = "Add Address")
+        }
 
     }
 

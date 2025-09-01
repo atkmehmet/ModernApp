@@ -16,7 +16,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun AdressScreen(
-    adressView: AdressView = hiltViewModel()
+    adressView: AdressView,
+    onBack:()->Unit
 ) {
     Column(
         modifier = Modifier
@@ -60,6 +61,10 @@ fun AdressScreen(
         Button(onClick = { adressView.InsertAdress() }) {
             Text(text = "Save Adress")
 
+        }
+        
+        Button(onClick = { onBack }) {
+            Text(text = "Back User Screen")
         }
         
         if (adressView.message!="")

@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.modernapp.presentation.Adress.AdressScreen
+import com.example.modernapp.presentation.Navigation.AppNavHost
 import com.example.modernapp.presentation.Uses.MainScreen
 import com.example.modernapp.ui.theme.ModernAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +21,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
            //MainScreen()
-            AdressScreen()
+           // AdressScreen()
+            AppNavHost()
         }
     }
 }
