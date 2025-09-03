@@ -28,8 +28,8 @@ import javax.inject.Singleton
         object AppModule
         {
              @Provides
-             fun providesUserRepository(userDao: UserDao):UserRepository{
-                 return UserRepositoryImpl(userDao)
+             fun providesUserRepository(userDao: UserDao,apiService: UserApiService):UserRepository{
+                 return UserRepositoryImpl(userDao,apiService)
              }
 
             @Provides

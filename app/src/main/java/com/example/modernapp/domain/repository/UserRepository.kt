@@ -9,4 +9,6 @@ interface UserRepository {
     suspend fun getUser():List<User>
 
     suspend fun deleteUser(userId:Int)
+
+    suspend fun  insertToApiUser()
 }
